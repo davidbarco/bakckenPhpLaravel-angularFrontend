@@ -1,0 +1,42 @@
+
+<div class="col-md-12 mt-5 d-flex justify-content-center">
+     
+  
+    <form class="col-md-8" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+
+      <div class="alert alert-primary col-md-12 text-center" role="alert" *ngIf="status == 'success'">
+        Se ha Logueado correctamente.
+      </div>
+    
+      <div class="alert alert-danger col-md-12 text-center" role="alert" *ngIf="status == 'error'">
+        El logueo no se ha completado correctamente.
+      </div>
+
+        <h2 class="text-center mt-3">Login</h2>
+        
+
+        <div class="mb-3 form-group">
+
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" #email="ngModel" [(ngModel)]="user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            <small class="invalid-feedback d-block" *ngIf="!email.valid && email.touched">El email no es valido.</small>
+           
+        </div>  
+
+        <div class="mb-3 form-group">
+
+          <label for="password" class="form-label">Password</label>
+          <input type="password" name="password" class="form-control" #password="ngModel" [(ngModel)]="user.password" required >
+          <small class="invalid-feedback d-block" *ngIf="!password.valid && password.touched">La contraseña no es valida.</small>
+        
+        </div>
+        
+        <div class="boton d-flex justify-content-center">
+            <button type="submit" class="btn btn-danger" [disabled]="loginForm.invalid">Entrar</button>
+
+        </div>
+      </form>
+
+</div>
+
+
