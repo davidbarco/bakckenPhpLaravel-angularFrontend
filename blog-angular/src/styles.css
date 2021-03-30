@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+.imagenAvatar{
+    border-radius: 50%;
+}
+.desplega{
+    margin-left: -12px !important;
+margin-top: 17px !important;
+box-shadow: 0px 0px 3px 1px black;
+}

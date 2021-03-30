@@ -28,18 +28,25 @@
             </li>
           </ul>
           <ul class="navbar-nav navbar-right" *ngIf="identity && identity.name">
-            <li class="nav-item dropdown">
+
+            <div *ngIf="identity && identity.image">
+              <img class="imagenAvatar" width="40" height="40" src="{{url + 'user/avatar/' + identity.image }}" alt="">
+       
+            </div>
+            
+            <li class="nav-item dropdown align-items-center" >
               <a class="nav-link dropdown-toggle active text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
               <strong class="text-danger">{{identity.name + ' ' + identity.surname}}</strong>
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" *ngIf="identity">
+              <ul class="dropdown-menu desplega" aria-labelledby="navbarDropdownMenuLink" *ngIf="identity">
                 <li><a class="dropdown-item" href="#">Crear entrada</a></li>
                 <li><a class="dropdown-item" href="#">Crear categorias</a></li>
                 <li><a class="dropdown-item" href="#">Mi perfil</a></li>
-                <li><a class="dropdown-item" href="#">Ajustes</a></li>
+                <li><a class="dropdown-item" routerLink="/ajustes">Ajustes</a></li>
                 <li><a class="dropdown-item" routerLink="/logout/1" >Cerrar sesion</a></li>
               </ul>
             </li>
+            
           </ul>
        
       
