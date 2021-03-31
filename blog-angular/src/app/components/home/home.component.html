@@ -1,4 +1,22 @@
+<div class="loading" *ngIf="!posts">
+    <h3>Cargando</h3>
 
-    <h1>{{page_title}}</h1>
+</div>
 
-<p>home works!</p>
+
+
+<div class="container-fluid d-flex justify-content-center flex-wrap cartas1" *ngIf='posts'>
+
+    <div class="card ml-5 mr-5 mt-5 mb-5 cartas" style="width: 18rem;" *ngFor="let post of posts">
+        <img class="card-img-top" src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2020/02/spider-man-1876543.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">{{post.content}}</p>
+          <div class="d-flex justify-content-center">
+              <a href="#" class="btn btn-primary">Ver</a>
+              
+          </div>
+        </div>
+    </div>
+
+</div>

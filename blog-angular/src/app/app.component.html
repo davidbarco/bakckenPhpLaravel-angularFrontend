@@ -1,20 +1,20 @@
-<div class="container">
-  <br>
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+<div class="">
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark navegacion">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="../assets/images/angular1.svg" width="50" height="50" alt="">
-        Blog</a>
+        <strong>Blog</strong></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/inicio">Inicio</a>
+            <a class="nav-link active text-danger" aria-current="page" routerLink="/inicio">Inicio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Categorias</a>
+          <li class="nav-item" *ngFor="let category of categories">
+            <a class="nav-link active text-white" href="#">{{category.name}}</a>
           </li>
         </ul>
         
@@ -39,8 +39,8 @@
               <strong class="text-danger">{{identity.name + ' ' + identity.surname}}</strong>
               </a>
               <ul class="dropdown-menu desplega" aria-labelledby="navbarDropdownMenuLink" *ngIf="identity">
-                <li><a class="dropdown-item" href="#">Crear entrada</a></li>
-                <li><a class="dropdown-item" href="#">Crear categorias</a></li>
+                <li><a class="dropdown-item" routerLink="/crear-entrada">Crear entrada</a></li>
+                <li><a class="dropdown-item" routerLink="/crear-categoria">Crear categorias</a></li>
                 <li><a class="dropdown-item" href="#">Mi perfil</a></li>
                 <li><a class="dropdown-item" routerLink="/ajustes">Ajustes</a></li>
                 <li><a class="dropdown-item" routerLink="/logout/1" >Cerrar sesion</a></li>
@@ -58,5 +58,8 @@
 
 <router-outlet></router-outlet>
 
-
+<footer class="text-center bg-dark text-white">
+  
+  Carlos David Barco Hurtado &copy;
+</footer>
 </div>

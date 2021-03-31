@@ -106,7 +106,6 @@ export class UserEditComponent implements OnInit {
     let data = datos.body;
     this.user.image = data.image;
 
-    console.log(this.user.image)
   }
 
 }

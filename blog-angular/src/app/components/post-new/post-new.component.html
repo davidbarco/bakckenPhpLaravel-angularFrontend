@@ -1,0 +1,68 @@
+<div class="col-md-12 mt-5 d-flex justify-content-center">
+
+
+    <form class="col-md-8" #postNewForm="ngForm" (ngSubmit)="onSubmit(postNewForm)">
+  
+      <div class="alert alert-primary col-md-12 text-center" role="alert" *ngIf="status == 'success'">
+        Se ha creado el post correctamente.
+      </div>
+  
+      <div class="alert alert-danger col-md-12 text-center" role="alert" *ngIf="status == 'error'">
+        el post no se ha completado correctamente.
+      </div>
+  
+      <h2 class="text-center mt-3">Crear Post</h2>
+
+      <div class="mb-3 form-group">
+  
+        <label for="title" class="form-label">Nombre</label>
+        <input type="text" name="title" class="form-control" #title="ngModel" [(ngModel)]="post.title" required>
+        <small class="invalid-feedback d-block" *ngIf="!title.valid && title.touched">El titulo no es valido.</small>
+  
+      </div>
+  
+      <div class="mb-3 form-group">
+  
+        <label for="content" class="form-label">Contenido</label> <br>
+        <textarea name="content" class="form-control" id="" cols="46" rows="2" #content="ngModel" [(ngModel)]="post.content" required></textarea>
+        <small class="invalid-feedback d-block" *ngIf="!content.valid && content.touched">El contenido no es valido.</small>
+
+  
+      </div>
+
+
+      <div class="mb-3 form-group">
+  
+        <label for="category_id" class="form-label">Categoria</label> <br>
+        <select class="form-control" name="category_id" id="" #category_id="ngModel" [(ngModel)]="post.category_id" required>
+            <option class="form-control" value="{{category.id}}" *ngFor="let category of categories">
+            {{category.name}}
+            </option>
+        </select>
+        <small class="invalid-feedback d-block" *ngIf="!content.valid && content.touched">El contenido no es valido.</small>
+
+  
+      </div>
+  
+       <div class="mb-3 form-group">
+  
+        <label for="image" class="form-label">Imagen</label> <br>
+        <angular-file-uploader 
+        [config]="afuConfig"
+        [resetUpload]=resetVar
+        (ApiResponse)="imageUpload($event)">
+        </angular-file-uploader>
+  
+      </div> 
+  
+  
+  
+      <div class="boton d-flex justify-content-center">
+  
+        <button type="submit" class="btn btn-danger" [disabled]="postNewForm.invalid">Guardar</button>
+  
+      </div>
+    </form>
+  
+  </div>
+  
