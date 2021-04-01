@@ -10,10 +10,13 @@ right: 0 !important;
 box-shadow: 0px 0px 3px 1px black;
 }
 .formCategory{
-    height: 400px;
+    height: 600px;
+}
+.login, .register{
+    height: 600px;
 }
 
-.cartas{
+.cartas, .imagenUser{ 
     box-shadow: 0px 0px 3px 1px black;
 }
 .cartas1{
@@ -21,4 +24,38 @@ box-shadow: 0px 0px 3px 1px black;
 }
 .navegacion{
     box-shadow: 0px 0px 19px 1px black;
+}
+.imagenUser{
+    border-radius: 50%;
+}
+.loading{
+    height: 800px;
+}
+.cartas{
+    border: 2px solid #262222;
+}
+.tarjeta{
+    height: 160px;
+    color: rgb(141, 137, 130);
+}
+.titulo{
+    color: rgb(201, 191, 204);
+
+}
+.ver{
+    background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    
+}
+
+.tarjetaBody{
+    background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #e74c3c, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #e74c3c, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.cartas3{
+    box-shadow: 0px 0px 12px 8px rgba(0, 0, 0, 0.654);
 }

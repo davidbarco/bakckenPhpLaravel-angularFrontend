@@ -1,5 +1,5 @@
-<div class="loading" *ngIf="!posts">
-    <h3>Cargando</h3>
+<div class="loading cartas1 pt-5" *ngIf="!posts">
+    <h3 class="text-white text-center">Cargando...</h3>
 
 </div>
 
@@ -7,13 +7,22 @@
 
 <div class="container-fluid d-flex justify-content-center flex-wrap cartas1" *ngIf='posts'>
 
-    <div class="card ml-5 mr-5 mt-5 mb-5 cartas" style="width: 18rem;" *ngFor="let post of posts">
-        <img class="card-img-top" src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2020/02/spider-man-1876543.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{post.title}}</h5>
-          <p class="card-text">{{post.content}}</p>
-          <div class="d-flex justify-content-center">
-              <a href="#" class="btn btn-primary">Ver</a>
+    <div class="card ml-5 mr-5 mt-5 mb-5 cartas3 " style="width: 18rem;" *ngFor="let post of posts">
+        <img *ngIf="post.image" class="card-img-top" width="200" height="200" src="{{this.url + 'post/image/' + post.image}}" alt="{{post.title}}">
+
+        <div class="card-body tarjetaBody">
+          <h5 class="card-title text-white"><strong class="titulo"> {{post.title}}</strong></h5>
+          <p class="card-text  tarjeta">{{post.content}}</p>
+          <div class="d-flex justify-content-around">
+
+                  <a href="#" class="btn ver text-white cartas">Ver</a>
+                  <a *ngIf="identity && identity.sub == post.user_id " href="#" class="btn ver text-white cartas">Editar</a>
+                  <a *ngIf="identity && identity.sub == post.user_id " href="#" class="btn ver text-white cartas">Borrar</a>
+
+                  <a *ngIf="identity && identity.id == post.user_id " href="#" class="btn ver text-white cartas">Editar</a>
+                  <a *ngIf="identity && identity.id == post.user_id " href="#" class="btn ver text-white cartas">Borrar</a>
+                  
+            
               
           </div>
         </div>

@@ -1,4 +1,4 @@
-<div class="col-md-12 mt-5 d-flex justify-content-center">
+<div class="col-md-12 pb-5 d-flex justify-content-center cartas1">
 
 
   <form class="col-md-8" #userEditForm="ngForm" (ngSubmit)="onSubmit(userEditForm)">
@@ -11,10 +11,10 @@
       la edicion no se ha completado correctamente.
     </div>
 
-    <h2 class="text-center mt-3">Editar Perfil</h2>
+    <h2 class="text-center mt-3 text-white">Editar Perfil</h2>
     <div class="mb-3 form-group">
 
-      <label for="name" class="form-label">Nombre</label>
+      <label for="name" class="form-label text-white">Nombre</label>
       <input type="text" name="name" class="form-control" #name="ngModel" [(ngModel)]="user.name" required
         pattern="[a-zA-Z]+">
       <small class="invalid-feedback d-block" *ngIf="!name.valid && name.touched">El nombre no es valido.</small>
@@ -23,7 +23,7 @@
 
     <div class="mb-3 form-group">
 
-      <label for="surname" class="form-label">Apellidos</label>
+      <label for="surname" class="form-label text-white">Apellidos</label>
       <input type="text" name="surname" class="form-control" #surname="ngModel" [(ngModel)]="user.surname" required
         pattern="[a-zA-Z]+">
       <small class="invalid-feedback d-block" *ngIf="!surname.valid && surname.touched">Los apellidos no son
@@ -33,7 +33,7 @@
 
     <div class="mb-3 form-group">
 
-      <label for="email" class="form-label">Email</label>
+      <label for="email" class="form-label text-white">Email</label>
       <input type="email" name="email" class="form-control" #email="ngModel" [(ngModel)]="user.email" required
         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
       <small class="invalid-feedback d-block" *ngIf="!email.valid && email.touched">El email no es valido.</small>
@@ -42,7 +42,7 @@
 
     <div class="mb-3 form-group">
 
-      <label for="description" class="form-label">Descripcion</label> <br>
+      <label for="description" class="form-label text-white">Descripcion</label> <br>
       <textarea name="description" class="form-control" id="" cols="46" rows="2" #description="ngModel"
         [(ngModel)]="user.description"></textarea>
 
@@ -50,10 +50,10 @@
 
     <div class="mb-3 form-group">
 
-      <label for="image" class="form-label">Imagen</label> <br>
+      <label for="image" class="form-label text-white">Imagen</label> <br>
 
       <div *ngIf="identity && identity.image" class="d-flex justify-content-center mb-5">
-             <img width="150" height="150" src="{{url + 'user/avatar/' + identity.image }}" alt="">
+             <img class="imagenUser" width="150" height="150" src="{{url + 'user/avatar/' + identity.image }}" alt="">
       
       </div>
       <angular-file-uploader 

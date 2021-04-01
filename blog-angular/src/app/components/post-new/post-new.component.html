@@ -1,4 +1,4 @@
-<div class="col-md-12 mt-5 d-flex justify-content-center">
+<div class="col-md-12 pb-5  d-flex justify-content-center cartas1">
 
 
     <form class="col-md-8" #postNewForm="ngForm" (ngSubmit)="onSubmit(postNewForm)">
@@ -11,11 +11,11 @@
         el post no se ha completado correctamente.
       </div>
   
-      <h2 class="text-center mt-3">Crear Post</h2>
+      <h2 class="text-center mt-3 text-white">Crear Post</h2>
 
       <div class="mb-3 form-group">
   
-        <label for="title" class="form-label">Nombre</label>
+        <label for="title" class="form-label text-white">Nombre</label>
         <input type="text" name="title" class="form-control" #title="ngModel" [(ngModel)]="post.title" required>
         <small class="invalid-feedback d-block" *ngIf="!title.valid && title.touched">El titulo no es valido.</small>
   
@@ -23,7 +23,7 @@
   
       <div class="mb-3 form-group">
   
-        <label for="content" class="form-label">Contenido</label> <br>
+        <label for="content" class="form-label text-white">Contenido</label> <br>
         <textarea name="content" class="form-control" id="" cols="46" rows="2" #content="ngModel" [(ngModel)]="post.content" required></textarea>
         <small class="invalid-feedback d-block" *ngIf="!content.valid && content.touched">El contenido no es valido.</small>
 
@@ -33,7 +33,7 @@
 
       <div class="mb-3 form-group">
   
-        <label for="category_id" class="form-label">Categoria</label> <br>
+        <label for="category_id" class="form-label text-white">Categoria</label> <br>
         <select class="form-control" name="category_id" id="" #category_id="ngModel" [(ngModel)]="post.category_id" required>
             <option class="form-control" value="{{category.id}}" *ngFor="let category of categories">
             {{category.name}}
@@ -46,7 +46,7 @@
   
        <div class="mb-3 form-group">
   
-        <label for="image" class="form-label">Imagen</label> <br>
+        <label for="image" class="form-label text-white">Imagen</label> <br>
         <angular-file-uploader 
         [config]="afuConfig"
         [resetUpload]=resetVar

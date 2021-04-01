@@ -30,7 +30,7 @@ export class PostNewComponent implements OnInit {
     formatsAllowed: ".jpg,.png, .gif, .jpeg",
     maxSize: "50",
     uploadAPI:  {
-      url: global.url+'user/upload',
+      url: global.url+'post/upload',
       method:"POST",
       headers: {
      "Authorization": this._userService.getToken() 

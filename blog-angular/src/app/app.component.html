@@ -3,8 +3,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-dark navegacion">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img src="../assets/images/angular1.svg" width="50" height="50" alt="">
-        <strong>Blog</strong></a>
+        <img src="../assets/images/angular1.svg" width="50" height="50" alt=""></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -38,12 +37,12 @@
               <a class="nav-link dropdown-toggle active text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
               <strong class="text-danger">{{identity.name + ' ' + identity.surname}}</strong>
               </a>
-              <ul class="dropdown-menu desplega" aria-labelledby="navbarDropdownMenuLink" *ngIf="identity">
-                <li><a class="dropdown-item" routerLink="/crear-entrada">Crear entrada</a></li>
-                <li><a class="dropdown-item" routerLink="/crear-categoria">Crear categorias</a></li>
-                <li><a class="dropdown-item" href="#">Mi perfil</a></li>
-                <li><a class="dropdown-item" routerLink="/ajustes">Ajustes</a></li>
-                <li><a class="dropdown-item" routerLink="/logout/1" >Cerrar sesion</a></li>
+              <ul class="dropdown-menu desplega bg-dark" aria-labelledby="navbarDropdownMenuLink" *ngIf="identity">
+                <li><a class="dropdown-item text-danger" routerLink="/crear-entrada">Crear entrada</a></li>
+                <li><a class="dropdown-item text-danger" routerLink="/crear-categoria">Crear categorias</a></li>
+                <li><a class="dropdown-item text-danger" href="#">Mi perfil</a></li>
+                <li><a class="dropdown-item text-danger" routerLink="/ajustes">Ajustes</a></li>
+                <li><a class="dropdown-item text-danger" routerLink="/logout/1" >Cerrar sesion</a></li>
               </ul>
             </li>
             

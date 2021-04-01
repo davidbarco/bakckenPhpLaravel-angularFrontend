@@ -1,7 +1,7 @@
-<div class="col-md-12 mt-5 d-flex justify-content-center formCategory">
+<div class="col-md-12 pb-5 d-flex justify-content-center formCategory cartas1">
 
 
-    <form class="col-md-8" #categoryForm="ngForm" (ngSubmit)="onSubmit(categoryForm)">
+    <form class="col-md-5 pt-3" #categoryForm="ngForm" (ngSubmit)="onSubmit(categoryForm)">
   
       <div class="alert alert-primary col-md-12 text-center" role="alert" *ngIf="status == 'success'">
         Se ha creado la categoria correctamente.
@@ -11,10 +11,10 @@
         la categoria no se ha completado correctamente.
       </div>
   
-      <h2 class="text-center mt-3">Crear nueva categoria</h2>
+      <h2 class="text-center mt-3 text-white">Crear nueva categoria</h2>
       <div class="mb-3 form-group">
   
-        <label for="name" class="form-label">Nombre</label>
+        <label for="name" class="form-label text-white">Nombre</label>
         <input type="text" name="name" class="form-control" #name="ngModel" [(ngModel)]="category.name" required
           >
         <small class="invalid-feedback d-block" *ngIf="!name.valid && name.touched">El nombre no es valido.</small>

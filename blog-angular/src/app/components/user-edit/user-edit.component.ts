@@ -55,6 +55,7 @@ export class UserEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.identity)
     
   }
   
@@ -63,6 +64,8 @@ export class UserEditComponent implements OnInit {
       this._userService.update(this.token,this.user).subscribe(
         response=>{
           if(response && response.status){
+
+            console.log(response,"aqui");
               
               this.status = 'success';
 
@@ -83,6 +86,7 @@ export class UserEditComponent implements OnInit {
               if(response.changes.image){
                 this.user.image = response.changes.image;
               }
+             
               
               this.identity = this.user;
               localStorage.setItem('identity', JSON.stringify(this.identity))
