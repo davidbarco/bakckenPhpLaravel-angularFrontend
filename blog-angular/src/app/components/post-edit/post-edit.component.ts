@@ -9,12 +9,12 @@ import Swal from 'sweetalert2'
 
 
 @Component({
-  selector: 'app-post-new',
-  templateUrl: './post-new.component.html',
-  styleUrls: ['./post-new.component.css'],
+  selector: 'app-post-edit',
+  templateUrl: '../post-new/post-new.component.html',
+  styleUrls: ['../post-new/post-new.component.css'],
   providers:[UserService,CategoryService,PostService]
 })
-export class PostNewComponent implements OnInit {
+export class PostEditComponent implements OnInit {
 
   public post: Post;
   public identity;
@@ -58,7 +58,7 @@ export class PostNewComponent implements OnInit {
     this.identity= this._userService.getIdentity();
     this.token   = this._userService.getToken();
     this.url = global.url;
-    this.page_title= 'Crear Post'
+    this.page_title= 'Editar Post'
 
 
     }
@@ -75,6 +75,8 @@ export class PostNewComponent implements OnInit {
         this.post = new Post(1,idUser,1,'','',null,null);
       
         console.log(this.post);
+
+        this.getPost();
 
         
   }
@@ -98,6 +100,34 @@ export class PostNewComponent implements OnInit {
     )
   }
 
+
+  getPost(){
+
+    /*sacar el id del post de la url */
+    this._route.params.subscribe(params=>{
+      let id= +params['id'];
+       
+      /* peticion ajax para sacar los datos del post */
+      this._postService.getPost(id).subscribe(
+         response=>{
+             if(response.status == 'success'){
+               this.post = response.post;
+               console.log(this.post)
+             }else{
+               this._router.navigate(['/inicio']);
+             }
+         },
+         error =>{
+           console.log(<any>error);
+           this._router.navigate(['/inicio']);
+         }
+
+      );
+    })
+
+
+  }
+
   imageUpload(datos){
     console.log(datos.body);
     let data = datos.body;
@@ -108,25 +138,23 @@ export class PostNewComponent implements OnInit {
 
   /* metodo para al darle click al formulario, se va al servicio y guardar la informacion en la base de datos */
   onSubmit(form){
-    this._postService.create(this.token,this.post).subscribe(
+    
+    this._postService.update(this.token,this.post, this.post.id).subscribe(
       response=>{
-        if(response.status == "success"){
-          this.post = response.post;
+        if(response.status == 'success'){
           this.status = 'success';
-          Swal.fire(  'Creado!',  'Post creada con exito!',  'success')
-          this._router.navigate(['/inicio']);
-          console.log(response);
+          this._router.navigate(['/entrada', this.post.id])
 
         }else{
-           this.status= "error";
-        }  
+          this.status= 'error';
+          
+        }
       },
       error=>{
-        this.status= "error";
-         console.log(<any>error)
-      }       
-
-   );
+        this.status= 'error';
+        console.log(<any>error);
+      }
+    )
 
   }
 

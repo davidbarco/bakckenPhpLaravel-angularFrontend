@@ -41,7 +41,7 @@ class PostController extends Controller
     /* para mostrar una post en espefico */
     public function show($id){
 
-        $post = Post::find($id)->load('category');
+        $post = Post::find($id)->load('category')->load('user');
         
         if(is_object($post)){
            

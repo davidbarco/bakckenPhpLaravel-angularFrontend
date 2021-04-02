@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import{PostService} from '../../services/post.service';
 import{Post} from '../../models/post';
 import{global} from '../../services/global';
-import {UserService} from '../../services/user.service'
+import {UserService} from '../../services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -50,6 +51,24 @@ export class HomeComponent implements OnInit {
          console.log(<any>error);
       }
     )
+  }
+
+  deletePost(id){
+    this._postService.delete(this.token,id).subscribe(
+      
+      response=>{
+        Swal.fire(
+          'Borrado!',
+          'haz borrado este post!',
+          'success'
+        )
+       this.getPosts();
+      },
+      error=>{
+        console.log(<any>error)
+      }
+    )
+
   }
 
 }

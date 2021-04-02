@@ -11,7 +11,7 @@
         el post no se ha completado correctamente.
       </div>
   
-      <h2 class="text-center mt-3 text-white">Crear Post</h2>
+      <h2 class="text-center mt-3 text-white">{{page_title}}</h2>
 
       <div class="mb-3 form-group">
   
@@ -47,6 +47,10 @@
        <div class="mb-3 form-group">
   
         <label for="image" class="form-label text-white">Imagen</label> <br>
+        <div *ngIf="post && post.image" class="d-flex justify-content-center mb-5">
+          <img class="imagenUser" width="150" height="150" src="{{this.url + 'post/image/' + post.image}}" alt="">
+   
+        </div>
         <angular-file-uploader 
         [config]="afuConfig"
         [resetUpload]=resetVar
